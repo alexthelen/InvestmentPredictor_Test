@@ -30,6 +30,7 @@ public class SqlLite_Test
 		
 		db.OpenConnection();
 		
+		db.ExecuteDrop("Person");		
 		db.ExecuteCreateTable("Person", new String[] { "ID Int Primary Key Not Null", "Name Text Not Null", "Age Int Not Null", "Address Char(50)" });
 		JSONArray check = db.ExecuteSelect("sqlite_master", new String[] {"name"}, "type = 'table'");
 		assertEquals(1, check.length());
@@ -47,6 +48,8 @@ public class SqlLite_Test
 		SqlLite db = new SqlLite("test.db");
 		
 		db.OpenConnection();
+		
+		db.ExecuteDrop("Person");	
 		db.ExecuteCreateTable("Person", new String[] { "ID Int Primary Key Not Null", "Name Text Not Null", "Age Int Not Null", "Address Char(50)" });
 		
 		db.ExecuteInsert("Person", new String[] {"ID", "Name", "Age"}, new String[] {"1", "'Alex'", "25"});
@@ -61,7 +64,7 @@ public class SqlLite_Test
 		
 		try 
 		{
-			assertEquals(26, check.getInt(2));
+			assertEquals(26, check.getJSONObject(0).getInt("Age"));
 		} 
 		catch (JSONException e) 
 		{
