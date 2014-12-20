@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.Test;
 
 import InvestmentPredictor.DataLayer.XMLFile;
@@ -30,19 +31,10 @@ public class XMLFile_Test
 	public void testReadFile() 
 	{
 		XMLFile xFile = new XMLFile("investmentPredictor.xml");
-		JSONArray result = xFile.ReadFile(new String[] {"Funds", "Securities"});
+		JSONObject result = xFile.ReadFile(new String[] {"Funds", "Securities"});
 		
-		assertEquals(2, result.length());
-		
-		try 
-		{
-			assertTrue(result.getJSONObject(0).has("Fund"));
-			assertTrue(result.getJSONObject(1).has("Security"));
-		} 
-		catch (JSONException e) 
-		{
-			e.printStackTrace();
-		}
+		assertTrue(result.has("Funds"));
+		assertTrue(result.has("Securities"));
 	}
 
 }

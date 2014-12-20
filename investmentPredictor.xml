@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/investmentPredictor/" targetNamespace="http://www.example.org/investmentPredictor/"
+xsi="C:\Users\athelen\git\InvestmentPredictor\src\InvestmentPredictor\DataLayer\investmentPredictor.xsd">
+
+<Funds>
+	<Fund>
+		<Name>PowerShares QQQ</Name>
+		<Ticker>QQQ</Ticker>
+		<InceptionDate>19990310</InceptionDate>
+		<Exchange>NASDAQ</Exchange>
+	</Fund>
+	<Fund>
+		<Name>iShares Dow Jones US ETF</Name>
+		<Ticker>DJUSTS</Ticker>
+		<InceptionDate>20000612</InceptionDate>
+		<Exchange>NYSE Arca</Exchange>
+	</Fund>
+</Funds>
+
+<Securities>
+	<Security>
+		<Name>iShares Dow Jones US ETF</Name>
+		<Ticker>DJUST</Ticker>
+		<Type>Fund</Type>
+		<Exchange>NYSE Arca</Exchange>
+	</Security>
+	<Security>
+		<Name>PowerShares QQQ</Name>
+		<Ticker>QQQ</Ticker>
+		<Type>Fund</Type>
+		<Exchange>NASDAQ</Exchange>
+	</Security>
+</Securities>
+
+</schema>
